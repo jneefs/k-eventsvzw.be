@@ -1,0 +1,14 @@
+# change index file
+DirectoryIndex pages/index.php
+
+# geen file structure
+Options -Indexes
+
+# URL rewrites
+RewriteEngine on
+
+# verwijder pages folder uit url
+RewriteRule ^pages/(.+)$ /$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.+) /pages/$1 [END]
